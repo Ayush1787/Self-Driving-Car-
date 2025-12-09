@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Car Simulation - Training Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <canvas id="networkCanvas"></canvas>
+    
+    <div id="aiPanel">
+        <h3>🧠 AI Controls</h3>
+        <button id="saveBtn">💾 Save Brain</button>
+        <button id="discardBtn">🗑️ Discard Brain</button>
+        <button id="resetBtn">🔄 Reset Training</button>
+    </div>
+    
+    <div id="statsPanel">
+        <h3>📊 Training Stats</h3>
+        <div class="stat-item">
+            <span class="stat-label">Generation:</span>
+            <span id="generation" class="stat-value">1</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Cars Alive:</span>
+            <span id="aliveCount" class="stat-value">0</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Best Distance:</span>
+            <span id="bestDistance" class="stat-value">0</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Best Fitness:</span>
+            <span id="bestFitness" class="stat-value">0</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Cars Passed:</span>
+            <span id="carsPassed" class="stat-value">0</span>
+        </div>
+    </div>
+    
+    <div id="trainingPanel">
+        <h3>🎮 Manual Training</h3>
+        <button id="startTrainBtn" class="primary-btn">▶️ Start Training</button>
+        <div class="training-control">
+            <label>Car Count:</label>
+            <input type="number" id="carCount" min="1" max="200" value="20">
+        </div>
+        <div class="training-control">
+            <label>Mutation Rate:</label>
+            <input type="range" id="mutationRate" min="0.05" max="0.5" step="0.05" value="0.2">
+            <span id="mutationValue">0.2</span>
+        </div>
+        <div class="training-control">
+            <label>Max Speed:</label>
+            <input type="range" id="maxSpeed" min="1" max="5" step="0.5" value="3">
+            <span id="maxSpeedValue">3</span>
+        </div>
+        <button id="nextGenBtn">⏭️ Next Generation</button>
+        <button id="restartBtn">🔄 Restart Current Gen</button>
+        <div class="training-toggle">
+            <label>
+                <input type="checkbox" id="autoTrain" checked>
+                Auto-Train
+            </label>
+        </div>
+    </div>
+    
+    <div id="brainPanel">
+        <h3>🗂️ Saved Brains</h3>
+        <div id="brainList"></div>
+    </div>
+    
+    <script src="js/visualizer.js"></script>
+    <script src="js/network.js"></script>
+    <script src="js/math/utils.js"></script>
+    <script src="js/sensor.js"></script>
+    <script src="js/road.js"></script>
+    <script src="js/car.js"></script>
+    <script src="js/controls.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
